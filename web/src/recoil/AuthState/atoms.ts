@@ -1,4 +1,31 @@
+
 // import { atom } from 'recoil';
+
+import { atom, useRecoilState } from 'recoil';
+
+// 초기값: 로그인이 되어 있지 않은 상태
+export const loggedInState = atom({
+    key: 'loggedInState',
+    default: '',
+});
+
+export const signInState = atom({
+    key: 'signInState',
+    default: {
+        nickname: '',
+        password: '',
+    },
+});
+
+// 로그인 토큰 설정
+export function useSetTokenState() {
+    const [, setToken] = useRecoilState(loggedInState);
+
+    // 로그인 상태를 업데이트하는 함수를 반환
+    return (token: string) => {
+        setToken(token);
+    };
+}
 
 // export const authState = atom({
 //     key: 'authState',
