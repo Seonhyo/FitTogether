@@ -1,3 +1,6 @@
+
+// import { atom } from 'recoil';
+
 import { atom, useRecoilState } from 'recoil';
 
 // 초기값: 로그인이 되어 있지 않은 상태
